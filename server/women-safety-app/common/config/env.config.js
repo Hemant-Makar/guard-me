@@ -5,6 +5,7 @@ module.exports = {
     "jwt_secret": "Wom@nS@fety@pplic@tion",
     "jwt_expiration_in_seconds": 36000,
     "environment": "dev",
+    "databaseUrl":"mongodb://127.0.0.1:27017/guard-me",
     "permissionLevels": {
         "NORMAL_USER": 0,
         "RESPONDER_USER": 1,

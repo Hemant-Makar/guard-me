@@ -1,4 +1,4 @@
-const mongoose = require("../../common/services/mongoose.service").mongoose;
+const mongoose = require('../../common/services/mongoose.service').mongoose;
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -83,7 +83,6 @@ exports.createUser = (userData) => {
 
 // Update user
 exports.updateUser = (id, userData) => {
-    // return User.findOneAndUpdate({ _id: id }, userData)
     return new Promise((resolve, reject) => {
         User.findOneAndUpdate({ _id: id }, userData, { new: true })
             .then(result => {

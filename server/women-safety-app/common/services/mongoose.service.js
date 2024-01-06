@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const config = require('../config/env.config');
+
 let count = 0;
 
 const options = {
@@ -9,11 +11,10 @@ const options = {
     // all other approaches are now deprecated by MongoDB:
     // useNewUrlParser: true,
     useUnifiedTopology: true
-    
 };
 const connectWithRetry = () => {
     console.log('MongoDB connection with retry')
-    mongoose.connect("mongodb://127.0.0.1:27017/guard-me", options).then(()=>{
+    mongoose.connect(config.databaseUrl, options).then(()=>{
         console.log('MongoDB is connected')
     }).catch(err=>{
         console.log('MongoDB connection unsuccessful, retry after 5 seconds. ', ++count, err);

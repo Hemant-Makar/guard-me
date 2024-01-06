@@ -1,12 +1,11 @@
-const UserModel = require("../models/users.model");
+const UserModel = require('../models/users.model');
 const crypto = require('crypto');
-const config = require('../../common/config/env.config');
 
 // Create user
 exports.insert = async (req, res) => {
     let salt = crypto.randomBytes(16).toString('base64');
     let hash = crypto.createHmac('sha512', salt).update(req.body.password).digest('base64');
-    req.body.password = salt + "$" + hash;
+    req.body.password = salt + '$' + hash;
     try {
         const result = await UserModel.createUser(req.body);
         sendResponse(res, 201, result);
@@ -55,6 +54,12 @@ exports.deleteById = async (req, res) => {
     }
 }
 
+/**
+ * @param res The response object of current http request
+ * @param statusCode The status code of current http request
+ * @param data The response data of current http request
+ * @param error The error object of current http request
+ */
 function sendResponse(res, statusCode = 200, data = null, error = null) {
     const response = {
         data: data,
