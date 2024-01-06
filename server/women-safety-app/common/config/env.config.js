@@ -1,7 +1,7 @@
 module.exports = {
-    "port": 3600,
-    "appEndPoint": "http://localhost:3600",
-    "apiEndPoint": "http://localhost:3600",
+    "port": 5001,
+    "appEndPoint": "http://localhost:5001",
+    "apiEndPoint": "http://localhost:5001",
     "jwt_secret": "Wom@nS@fety@pplic@tion",
     "jwt_expiration_in_seconds": 36000,
     "environment": "dev",

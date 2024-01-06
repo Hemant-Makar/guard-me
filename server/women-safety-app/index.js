@@ -1,9 +1,14 @@
 const config = require('./common/config/env.config');
 
+const UserRouters = require('./users/routes.config');
+
 const express = require('express');
 const app = express();
 
 app.use(express.json());
+
+// Configure users middleware
+UserRouters.routesConfig(app);
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -14,12 +19,12 @@ app.use(function (req, res, next) {
     if (req.method === 'OPTIONS') {
         return res.sendStatus(200);
     } else {
-        // Pass request to subscribe middleware
-        return res.send('<div>Welcome to Guard Me Application</div>');
+        // Pass request to subscribed middlewares
+        return next();
     }
 });
 
 // Listen the API request on configured port number
-app.listen(config.port, ()=> {
+app.listen(config.port, () => {
     console.log(`app listening at port ${config.port}`);
 });
