@@ -40,6 +40,9 @@ exports.findById = (id) => {
                 } else {
                     reject('Record not found');
                 }
+            })
+            .catch((error) => {
+                reject(error);
             });
     });
 };
@@ -93,6 +96,9 @@ exports.updateUser = (id, userData) => {
                 } else {
                     reject('Record not found');
                 }
+            })
+            .catch((error) => {
+                reject(error);
             });
     });
 };
@@ -107,6 +113,9 @@ exports.deleteUser = (id) => {
                 } else {
                     resolve(`Record deleted successfully`);
                 }
+            })
+            .catch((error) => {
+                reject(error);
             });
     });
 };
