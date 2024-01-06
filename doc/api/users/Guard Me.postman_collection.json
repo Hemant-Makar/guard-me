@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "620d2fe9-6ea7-4319-a57a-381e4d2f5cda",
+		"name": "Guard Me",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7579349"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"User 222\",\r\n    \"lastName\": \"222\",\r\n    \"email\": \"responder@gmail.com\",\r\n    \"password\": \"responder123\",\r\n    \"permissionLevels\": 2220\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create user success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Admin\",\r\n    \"lastName\": \"admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"permissionLevels\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/users",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": {\r\n        \"firstName\": \"User 2\",\r\n        \"lastName\": \"2\",\r\n        \"email\": \"responder@gmail.com\",\r\n        \"permissionLevels\": 0,\r\n        \"_id\": \"6599226c4c2f77c53bfb4d33\"\r\n    },\r\n    \"error\": null\r\n}"
+						},
+						{
+							"name": "create user failure",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Admin\",\r\n    \"lastName\": \"admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"permissionLevels\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/users",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": null,\r\n    \"error\": \"User not created\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all users: success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port}}/users",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": [\r\n        {\r\n            \"_id\": \"6599207523f857e62b39d8de\",\r\n            \"firstName\": \"admin\",\r\n            \"lastName\": \"admin\",\r\n            \"email\": \"admin@gmail.com\",\r\n            \"permissionLevels\": 2\r\n        },\r\n        {\r\n            \"_id\": \"659922394c2f77c53bfb4d2c\",\r\n            \"firstName\": \"Responder\",\r\n            \"lastName\": \"2\",\r\n            \"email\": \"responder@gmail.com\",\r\n            \"permissionLevels\": 1\r\n        },\r\n        {\r\n            \"_id\": \"6599226c4c2f77c53bfb4d33\",\r\n            \"firstName\": \"Hemant\",\r\n            \"lastName\": \"2\",\r\n            \"email\": \"responder@gmail.com\",\r\n            \"permissionLevels\": 0\r\n        }\r\n    ],\r\n    \"error\": null\r\n}"
+						},
+						{
+							"name": "all users: failure",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port}}/users",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": null,\r\n    \"error\": \"Record not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "get user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/users/6599207523f857e62b39d8de",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"6599207523f857e62b39d8de"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get user: success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port}}/users/6599207523f857e62b39d8de",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										"6599207523f857e62b39d8de"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": {\r\n        \"_id\": \"6599207523f857e62b39d8de\",\r\n        \"firstName\": \"admin\",\r\n        \"lastName\": \"admin\",\r\n        \"email\": \"admin@gmail.com\",\r\n        \"permissionLevels\": 2\r\n    },\r\n    \"error\": null\r\n}"
+						},
+						{
+							"name": "get user: failure",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port}}/users/6599207523f857e62b39d8de",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										"6599207523f857e62b39d8de"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": null,\r\n    \"error\": \"Record not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"permissions\": 11\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/users/6599226c4c2f77c53bfb4d30",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"6599226c4c2f77c53bfb4d30"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update user: success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"permissions\": 2\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/users/123",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										"123"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": {\r\n        \"_id\": \"6599226c4c2f77c53bfb4d33\",\r\n        \"firstName\": \"Hemant\",\r\n        \"lastName\": \"2\",\r\n        \"email\": \"responder@gmail.com\",\r\n        \"permissionLevels\": 0\r\n    },\r\n    \"error\": null\r\n}"
+						},
+						{
+							"name": "update user:failure",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"permissions\": 2\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/users/123",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										"123"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": null,\r\n    \"error\": \"Record not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/users/659927770ceef0c3da33eefa",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"659927770ceef0c3da33eefa"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete user: success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port}}/users/659922674c2f77c53bfb4d31",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										"659922674c2f77c53bfb4d31"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": \"Record deleted successfully\",\r\n    \"error\": null\r\n}"
+						},
+						{
+							"name": "delete user: failure",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:{{port}}/users/659922674c2f77c53bfb4d31",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users",
+										"659922674c2f77c53bfb4d31"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": null,\r\n    \"error\": \"Record not found\"\r\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
