@@ -2,7 +2,7 @@ const UserController = require('../users/controllers/users.controller');
 
 exports.routesConfig = (app) => {
   // Create user
-  app.post('/users', [UserController.insert]);
+  app.post('/users/register', [UserController.insert]);
 
   // Get all user list
   app.get('/users', [UserController.list]);

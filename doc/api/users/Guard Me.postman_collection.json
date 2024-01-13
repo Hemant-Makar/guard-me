@@ -10,13 +10,13 @@
 			"name": "users",
 			"item": [
 				{
-					"name": "create user",
+					"name": "register",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"User 222\",\r\n    \"lastName\": \"222\",\r\n    \"email\": \"responder@gmail.com\",\r\n    \"password\": \"responder123\",\r\n    \"permissionLevels\": 2220\r\n}",
+							"raw": "{\r\n    \"firstName\": \"Hemant\",\r\n    \"lastName\": \"Makar\",\r\n    \"email\": \"hemant.makar@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"permissionLevels\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,13 +24,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/users",
+							"raw": "{{host}}:{{port}}/users/register",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"users"
+								"users",
+								"register"
 							]
 						}
 					},
@@ -42,7 +43,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"firstName\": \"Admin\",\r\n    \"lastName\": \"admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"permissionLevels\": 2\r\n}",
+									"raw": "{\r\n    \"firstName\": \"Admin\",\r\n    \"lastName\": \"admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -98,6 +99,63 @@
 							"body": "{\r\n    \"data\": null,\r\n    \"error\": \"User not created\"\r\n}"
 						}
 					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hemant.makar@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/login",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/logout",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
 				},
 				{
 					"name": "all users",
@@ -166,14 +224,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/users/6599207523f857e62b39d8de",
+							"raw": "{{host}}:{{port}}/users/659aaec1ff98254cdbf135b7",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
 								"users",
-								"6599207523f857e62b39d8de"
+								"659aaec1ff98254cdbf135b7"
 							]
 						}
 					},
@@ -235,7 +293,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"permissions\": 11\r\n    }",
+							"raw": "{\r\n        \"permissionLevels\": 0\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -243,14 +301,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/users/6599226c4c2f77c53bfb4d30",
+							"raw": "{{host}}:{{port}}/users/659aaec1ff98254cdbf135b7",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
 								"users",
-								"6599226c4c2f77c53bfb4d30"
+								"659aaec1ff98254cdbf135b7"
 							]
 						}
 					},
@@ -329,14 +387,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/users/659927770ceef0c3da33eefa",
+							"raw": "{{host}}:{{port}}/users/659ab01cbe1279ce5e751e98",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
 								"users",
-								"659927770ceef0c3da33eefa"
+								"659ab01cbe1279ce5e751e98"
 							]
 						}
 					},

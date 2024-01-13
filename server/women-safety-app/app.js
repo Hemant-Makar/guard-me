@@ -1,6 +1,7 @@
 const config = require('./common/config/env.config');
 
 const UserRouters = require('./users/routes.config');
+const AuthRouters = require('./authorization/routes/routes.config');
 
 const express = require('express');
 const app = express();
@@ -9,6 +10,7 @@ app.use(express.json());
 
 // Configure users middleware
 UserRouters.routesConfig(app);
+AuthRouters.routesConfig(app);
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
