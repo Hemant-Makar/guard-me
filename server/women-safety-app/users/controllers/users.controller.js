@@ -1,6 +1,6 @@
 const UserModel = require('../models/users.model');
 const crypto = require('crypto');
-
+const Utils = require('../../utils/utils');
 // Create user
 exports.insert = async (req, res) => {
     let salt = crypto.randomBytes(16).toString('base64');
@@ -8,9 +8,9 @@ exports.insert = async (req, res) => {
     req.body.password = salt + '$' + hash;
     try {
         const result = await UserModel.createUser(req.body);
-        sendResponse(res, 201, result);
+        Utils.sendResponse(res, 201, result);
     } catch (error) {
-        sendResponse(res, 400, null, error);
+        Utils.sendResponse(res, 400, null, error);
     }
 };
 
@@ -18,9 +18,9 @@ exports.insert = async (req, res) => {
 exports.list = async (req, res) => {
     try {
         const users = await UserModel.findAllUser();
-        sendResponse(res, 200, users);
+        Utils.sendResponse(res, 200, users);
     } catch (error) {
-        sendResponse(res, 400, null, error);
+        Utils.sendResponse(res, 400, null, error);
     }
 };
 
@@ -28,18 +28,18 @@ exports.list = async (req, res) => {
 exports.getById = async (req, res) => {
     try {
         const record = await UserModel.findById(req.params.id);
-        sendResponse(res, 200, record);
+        Utils.sendResponse(res, 200, record);
     } catch (error) {
-        sendResponse(res, 404, null, error);
+        Utils.sendResponse(res, 404, null, error);
     }
 };
 // update user by id
 exports.updateById = async (req, res) => {
     try {
         const result = await UserModel.updateUser(req.params.id, req.body);
-        sendResponse(res, 200, result);
+        Utils.sendResponse(res, 200, result);
     } catch (error) {
-        sendResponse(res, 400, null, error);
+        Utils.sendResponse(res, 400, null, error);
     }
 }
 
@@ -48,22 +48,18 @@ exports.deleteById = async (req, res) => {
     try {
         const result = await UserModel.deleteUser(req.params.id);
         console.log(result);
-        sendResponse(res, 200, result);
+        Utils.sendResponse(res, 200, result);
     } catch (error) {
-        sendResponse(res, 404, null, error);
+        Utils.sendResponse(res, 404, null, error);
     }
 }
 
-/**
- * @param res The response object of current http request
- * @param statusCode The status code of current http request
- * @param data The response data of current http request
- * @param error The error object of current http request
- */
-function sendResponse(res, statusCode = 200, data = null, error = null) {
-    const response = {
-        data: data,
-        error: error
-    };
-    res.status(statusCode).send(response);
-}
+// Login
+exports.login = async (req, res) => {
+    try {
+        const record = await UserModel.findByEmail(req.body.email);
+        Utils.sendResponse(res, 200, record);
+    } catch (error) {
+        Utils.sendResponse(res, 404, null, error);
+    }
+};
