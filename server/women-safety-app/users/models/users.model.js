@@ -6,7 +6,7 @@ const userSchema = new Schema({
     lastName: { type: String, required: true },
     email: { type: String, require: true },
     password: { type: String, require: true },
-    permissionLevels: { type: Number, require: true, default: 0 }
+    permissionLevel: { type: Number, require: true, default: 0 }
 });
 
 userSchema.virtual('id').get(() => {
@@ -23,13 +23,13 @@ const User = mongoose.model('Users', userSchema);
 
 // find user by email address
 exports.findByEmail = (email) => {
-    return User.find({ email: email });
+    return User.find({ email: email.trim() });
 };
 
 // find by user id
 exports.findById = (id) => {
     return new Promise((resolve, reject) => {
-        User.findOne({ _id: id })
+        User.findOne({ _id: id.trim() })
             .then(result => {
                 // result will be null if record not exist
                 if (result) {
