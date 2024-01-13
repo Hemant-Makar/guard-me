@@ -1,0 +1,65 @@
+const mongoose = require('../../common/services/mongoose.service').mongoose;
+const Schema = mongoose.Schema;
+
+const GeolocaltionSchema = new Schema({
+    _id: false,
+    latitude: { type: String, require: true },
+    longitude: { type: String, require: true },
+});
+const alarmSchema = new Schema({
+    name: { type: String, require: true },
+    localtion: { type: GeolocaltionSchema, require: true },
+    createdBy: { type: String, require: true },
+    isClosed: { type: Boolean, require: true, default: false },
+    createdOn: { type: Number, require: true, default: new Date().getTime() },
+    participants: { type: Array, require: true, default: [] }
+});
+
+alarmSchema.virtual('id').get(() => { return this._id.toHexString() });
+
+alarmSchema.set('toJSON', { virtual: true });
+
+const Alarm = mongoose.model('Alarms', alarmSchema);
+
+// Raise incident/alarm
+exports.createAlarm = (alarmData) => {
+    const alarm = new Alarm(alarmData);
+    return alarm.save();
+};
+
+// Get all alarms
+exports.findAllAlarms = () => {
+    return Alarm.find().exec();
+};
+
+// Get Alarm By Id
+exports.findAlarmById = (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const alarm = await Alarm.findById({ _id: id }).exec();
+            if (alarm) {
+                resolve(alarm);
+            } else {
+                reject('Alarm not found');
+            }
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
+
+// Find and update alarm 
+exports.updateAlarm = (alarmId, userId, updates) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const result = await Alarm.findOneAndUpdate({ _id: alarmId }, updates, { new: true }).exec();
+            if (result) {
+                resolve(result);
+            } else {
+                reject('Alarm not found');
+            }
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
