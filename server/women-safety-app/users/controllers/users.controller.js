@@ -10,7 +10,7 @@ exports.insert = async (req, res) => {
         const result = await UserModel.createUser(req.body);
         Utils.sendResponse(res, 201, result);
     } catch (error) {
-        Utils.sendResponse(res, 400, null, error);
+        Utils.sendResponse(res, 400, null, error.message || error.errors.message);
     }
 };
 

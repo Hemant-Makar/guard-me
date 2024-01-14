@@ -7,7 +7,7 @@ exports.createAlarm = async (req, res) => {
         alarmData.createdBy = req.query.userId;
         alarmData.participants = [req.query.userId]
         const result = await AlarmModel.createAlarm(alarmData);
-        Utils.sendResponse(res, 200, result.toJSON());
+        Utils.sendResponse(res, 201, result);
     } catch (error) {
         Utils.sendResponse(res, 400, null, error);
     }

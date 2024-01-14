@@ -3,16 +3,16 @@ const Schema = mongoose.Schema;
 
 const GeolocationSchema = new Schema({
     _id: false,
-    latitude: { type: String, require: true },
-    longitude: { type: String, require: true },
+    latitude: { type: Number, require: true, default: 0.0 },
+    longitude: { type: Number, require: true, default: 0.0 }
 });
 const alarmSchema = new Schema({
     name: { type: String, require: true },
     location: { type: GeolocationSchema, require: true },
-    createdBy: { type: String, require: true },
+    createdBy: { type: Schema.Types.ObjectId, require: true, ref: 'Users' },
     isClosed: { type: Boolean, require: true, default: false },
-    createdOn: { type: Number, require: true, default: new Date().getTime() },
-    participants: { type: Array, require: true, default: [] }
+    createdOn: { type: Number, require: true, default: Date.now() },
+    participants: [{ type: Schema.Types.ObjectId, ref: "Users", require: true }]
 });
 
 alarmSchema.virtual('id').get(() => { return this._id.toHexString() });
@@ -29,14 +29,14 @@ exports.createAlarm = (alarmData) => {
 
 // Get all alarms
 exports.findAllAlarms = () => {
-    return Alarm.find().exec();
+    return Alarm.find().populate('participants').exec();
 };
 
 // Get Alarm By Id
 exports.findAlarmById = (id) => {
     return new Promise(async (resolve, reject) => {
         try {
-            const alarm = await Alarm.findById({ _id: id }).exec();
+            const alarm = await Alarm.findOne({ _id: id }).populate('participants').exec();
             if (alarm) {
                 resolve(alarm);
             } else {
