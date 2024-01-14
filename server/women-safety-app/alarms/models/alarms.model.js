@@ -1,14 +1,14 @@
 const mongoose = require('../../common/services/mongoose.service').mongoose;
 const Schema = mongoose.Schema;
 
-const GeolocaltionSchema = new Schema({
+const GeolocationSchema = new Schema({
     _id: false,
     latitude: { type: String, require: true },
     longitude: { type: String, require: true },
 });
 const alarmSchema = new Schema({
     name: { type: String, require: true },
-    localtion: { type: GeolocaltionSchema, require: true },
+    location: { type: GeolocationSchema, require: true },
     createdBy: { type: String, require: true },
     isClosed: { type: Boolean, require: true, default: false },
     createdOn: { type: Number, require: true, default: new Date().getTime() },
