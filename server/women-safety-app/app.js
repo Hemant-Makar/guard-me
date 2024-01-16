@@ -33,6 +33,6 @@ app.use(function (req, res, next) {
 });
 
 // Listen the API request on configured port number
-app.listen(config.port, () => {
+app.listen(config.port, '0.0.0.0', () => {
     console.log(`app listening at port ${config.port}`);
 });
