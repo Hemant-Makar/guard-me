@@ -9,6 +9,7 @@ const AuthRouters = require('./authorization/routes.config');
 const AlarmRouters = require('./alarms/routes.config')
 
 const express = require('express');
+const envConfig = require('./common/config/env.config');
 const app = express();
 
 app.use(express.json());
@@ -33,6 +34,6 @@ app.use(function (req, res, next) {
 });
 
 // Listen the API request on configured port number
-app.listen(config.port, '0.0.0.0', () => {
+app.listen(config.port, envConfig.serverIp, () => {
     console.log(`app listening at port ${config.port}`);
 });
