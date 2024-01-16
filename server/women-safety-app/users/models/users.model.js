@@ -2,18 +2,24 @@ const mongoose = require('../../common/services/mongoose.service').mongoose;
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    email: { type: String, require: true },
-    password: { type: String, require: true },
-    permissionLevel: { type: Number, require: true, default: 0 }
+    name: { type: String, trim: true, required: true },
+    email: { type: String, trim: true, require: true, unique: true },
+    password: { type: String, trim: true, require: true },
+    gender: { type: String, trim: true, require: true },
+    age: { type: Number, require: true },
+    permissionLevel: { type: Number, require: true, default: 0 },
 });
 
-userSchema.virtual('id').get(() => {
-    return this._id.toHexString();
-});
+// Hide the private properties
+userSchema.methods.toJSON = function () {
+    const user = this;
+    const userObject = user.toObject();
 
-userSchema.set('toJSON', { virtual: true });
+    delete userObject.password;
+    delete userObject.__v;
+
+    return userObject;
+}
 
 userSchema.findById = (callback) => {
     return this.model('Users').find({ id: this.id }, callback);
@@ -33,9 +39,6 @@ exports.findById = (id) => {
             .then(result => {
                 // result will be null if record not exist
                 if (result) {
-                    result = result.toJSON();
-                    delete result.__v;
-                    delete result.password;
                     resolve(result);
                 } else {
                     reject('Record not found');
@@ -49,36 +52,13 @@ exports.findById = (id) => {
 
 // Get all users
 exports.findAllUser = () => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const users = await User.find().exec();
-            const records = users.map((record) => {
-                record = record.toJSON();
-                delete record.password;
-                delete record.__v;
-                return record;
-            });
-            resolve(records);
-        } catch (error) {
-            reject(error);
-        }
-    });
+    return User.find().exec();
 };
 
 // Create user
 exports.createUser = (userData) => {
-    return new Promise(async (resolve, reject) => {
-        const user = new User(userData);
-        try {
-            const result = await user.save();
-            const record = result.toJSON();
-            delete record.password;
-            delete record.__v;
-            resolve(record)
-        } catch (error) {
-            reject(error);
-        }
-    });
+    const user = new User(userData);
+    return user.save();
 };
 
 // Update user
@@ -88,9 +68,6 @@ exports.updateUser = (id, userData) => {
             .then(result => {
                 // result will be null if record not exist
                 if (result) {
-                    result = result.toJSON();
-                    delete result.__v;
-                    delete result.password;
                     resolve(result);
                 } else {
                     reject('Record not found');
