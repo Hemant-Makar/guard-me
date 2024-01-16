@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     name: { type: String, trim: true, required: true },
-    email: { type: String, require: true, trim: true, unique: true },
+    email: { type: String, trim: true, require: true, unique: true },
+    password: { type: String, trim: true, require: true },
     gender: { type: String, trim: true, require: true },
     age: { type: Number, require: true },
     permissionLevel: { type: Number, require: true, default: 0 },
-    password: { type: String, require: true }
 });
 
 // Hide the private properties
