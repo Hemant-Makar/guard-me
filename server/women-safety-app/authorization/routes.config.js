@@ -1,5 +1,5 @@
-const AuthorizationController = require('../controllers/authorization.controller');
-const VerifyUserMiddleware = require('../middlewares/verify.users.middleware');
+const AuthorizationController = require('./controllers/authorization.controller');
+const VerifyUserMiddleware = require('./middlewares/verify.users.middleware');
 exports.routesConfig = function (app) {
 
     // Login

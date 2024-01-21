@@ -10,7 +10,7 @@ exports.insert = async (req, res) => {
         const result = await UserModel.createUser(req.body);
         Utils.sendResponse(res, 201, result);
     } catch (error) {
-        Utils.sendResponse(res, 400, null, error);
+        Utils.sendResponse(res, 400, null, error.message || error.errors.message);
     }
 };
 
@@ -20,7 +20,7 @@ exports.list = async (req, res) => {
         const users = await UserModel.findAllUser();
         Utils.sendResponse(res, 200, users);
     } catch (error) {
-        Utils.sendResponse(res, 400, null, error);
+        Utils.sendResponse(res, 404, null, error);
     }
 };
 
@@ -39,7 +39,7 @@ exports.updateById = async (req, res) => {
         const result = await UserModel.updateUser(req.params.id, req.body);
         Utils.sendResponse(res, 200, result);
     } catch (error) {
-        Utils.sendResponse(res, 400, null, error);
+        Utils.sendResponse(res, 404, null, error);
     }
 }
 

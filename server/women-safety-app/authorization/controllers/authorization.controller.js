@@ -13,8 +13,7 @@ exports.login = async (req, res) => {
         let b = Buffer.from(hash);
         let refreshToken = b.toString('base64');
         const user = req.body.user;
-        delete user.password;
-        Utils.sendResponse(res, 201, { accessToken, refreshToken, user: user });
+        Utils.sendResponse(res, 200, { accessToken, refreshToken, user });
     } catch (err) {
         // res.status(500).send({ errors: err });
         Utils.sendResponse(res, 400, null, err);
