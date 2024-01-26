@@ -90,8 +90,8 @@ async function sendEmailWithOtp(otp, userEmail) {
     const emailOptions = {
         from: config.emailConfig.user,
         to: userEmail,
-        subject: 'Women Safety password reset OTP',
-        text: `Your OTP is : ${otp}`,
+        subject: `Women Safety App: OTP for verification`,
+        text: `Your OTP is : ${otp}.\nValid for next 5 minutes`,
     };
     return transporter.sendMail(emailOptions);
 }
