@@ -18,7 +18,7 @@
 ### 
 
 
-### Women Safety Application Credemtials:
+### Women Safety Application Credentials:
 - email: guardme20242@gmail.com
 - password: Guardme@9182604986
 - app password: crii knrz wvgv tqen
