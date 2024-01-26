@@ -23,4 +23,9 @@ exports.routesConfig = function (app) {
     //     AuthValidationMiddleware.validRefreshNeeded,
     //     AuthorizationController.login
     // ]);
+
+    // Forgot password
+    app.post('/forgotPassword', [AuthorizationController.forgotPassword]);
+    // Reset password
+    app.post('/resetPassword', [AuthorizationController.resetPassword]);
 };
