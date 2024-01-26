@@ -3,21 +3,21 @@ const UserAuthMiddleware = require('./middlewares/user.auth.middleware');
 exports.routesConfig = function (app) {
 
     // Login
-    app.post('/login', [
+    app.post('/api/login', [
         UserAuthMiddleware.isPasswordAndUserMatch,
         AuthorizationController.login
     ]);
 
     // Logout
-    app.get('/logout', [AuthorizationController.logout]);
+    app.get('/api/logout', [AuthorizationController.logout]);
 
-    // app.post('/auth', [
+    // app.post('/api/auth', [
     //     UserAuthMiddleware.hasAuthValidFields,
     //     UserAuthMiddleware.isPasswordAndUserMatch,
     //     AuthorizationController.login
     // ]);
 
-    // app.post('/auth/refresh', [
+    // app.post('/api/auth/refresh', [
     //     AuthValidationMiddleware.validJWTNeeded,
     //     AuthValidationMiddleware.verifyRefreshBodyField,
     //     AuthValidationMiddleware.validRefreshNeeded,
@@ -25,9 +25,9 @@ exports.routesConfig = function (app) {
     // ]);
 
     // Forgot password
-    app.post('/forgotPassword', [AuthorizationController.forgotPassword]);
+    app.post('/api/forgotPassword', [AuthorizationController.forgotPassword]);
     // Reset password
-    app.post('/resetPassword', [
+    app.post('/api/resetPassword', [
         UserAuthMiddleware.hasValidOtp,
         AuthorizationController.resetPassword
     ]);

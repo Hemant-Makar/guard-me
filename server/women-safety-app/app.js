@@ -1,17 +1,15 @@
-const config = require('./common/config/env.config');
-
 // User Module
-const UserRouters = require('./users/routes.config');
+const UserRouters = require('./api/users/routes.config');
 // Auth Module
-const AuthRouters = require('./authorization/routes.config');
+const AuthRouters = require('./api/authorization/routes.config');
 
 // Alarm Module
-const AlarmRouters = require('./alarms/routes.config')
+const AlarmRouters = require('./api/alarms/routes.config')
+
+const config = require('./api/common/config/env.config');
 
 const express = require('express');
-const envConfig = require('./common/config/env.config');
 const app = express();
-
 app.use(express.json());
 
 // Configure users middleware
@@ -34,6 +32,6 @@ app.use(function (req, res, next) {
 });
 
 // Listen the API request on configured port number
-app.listen(config.port, envConfig.serverIp, () => {
+app.listen(config.port, config.serverIp, () => {
     console.log(`app listening at port ${config.port}`);
 });
