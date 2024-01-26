@@ -1,6 +1,14 @@
 const mongoose = require('../../common/services/mongoose.service').mongoose;
 const Schema = mongoose.Schema;
 
+const OtpSchema = new Schema({
+    // email: { type: String, trim: true, require: true, unique: true },
+    otp: { type: Number, require: true, default: null },
+    // Default 5 min 
+    expiredTime: { type: Number, require: true, default: 0 },
+})
+
+// User schema for UserModel
 const userSchema = new Schema({
     name: { type: String, trim: true, required: true },
     email: { type: String, trim: true, require: true, unique: true },
@@ -8,6 +16,7 @@ const userSchema = new Schema({
     gender: { type: String, trim: true, require: true },
     age: { type: Number, require: true },
     permissionLevel: { type: Number, require: true, default: 0 },
+    otp: { type: OtpSchema, _id: false, default: null }
 });
 
 // Hide the private properties
@@ -15,7 +24,11 @@ userSchema.methods.toJSON = function () {
     const user = this;
     const userObject = user.toObject();
 
+    // rename user _id property with id 
+    userObject['id'] = userObject._id;
+    delete userObject._id;
     delete userObject.password;
+    delete userObject.otp;
     delete userObject.__v;
 
     return userObject;
@@ -29,7 +42,24 @@ const User = mongoose.model('Users', userSchema);
 
 // find user by email address
 exports.findByEmail = (email) => {
-    return User.find({ email: email.trim() });
+    return new Promise((resolve, reject) => {
+        if (!email) {
+            reject('Please provided valid email address');
+            return;
+        }
+        User.findOne({ email: email?.trim() })
+            .then(result => {
+                // result will be null if record not exist
+                if (result) {
+                    resolve(result);
+                } else {
+                    reject(`Record not found with email: ${email}`);
+                }
+            })
+            .catch((error) => {
+                reject(error);
+            });
+    });
 };
 
 // find by user id
