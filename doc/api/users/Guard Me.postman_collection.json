@@ -36,7 +36,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Hemant\",\r\n    \"email\": \"hm@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"age\": 18,\r\n    \"gender\": \"Male\",\r\n    \"permissionLevels\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"Hemant\",\r\n    \"email\": \"hemant.makar@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"age\": 18,\r\n    \"gender\": \"Male\",\r\n    \"permissionLevels\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,12 +44,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/users/register",
+							"raw": "http://{{host}}:{{port}}/{{version}}/users/register",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"users",
 								"register"
 							]
@@ -57,13 +59,13 @@
 					},
 					"response": [
 						{
-							"name": "register-success",
+							"name": "register",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Hemant Makar\",\r\n    \"email\": \"hpm@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"age\": 18,\r\n    \"gender\": \"Male\",\r\n    \"permissionLevels\": 1\r\n}",
+									"raw": "{\r\n    \"name\": \"Hemant\",\r\n    \"email\": \"hemant.makar@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"age\": 18,\r\n    \"gender\": \"Male\",\r\n    \"permissionLevels\": 1\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -71,12 +73,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}:{{port}}/users/register",
+									"raw": "http://{{host}}:{{port}}/{{version}}/users/register",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"users",
 										"register"
 									]
@@ -96,15 +100,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "147"
+									"value": "149"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"93-16NUgX2bIxtrrZBPU8uQ9/3Lqzo\""
+									"value": "W/\"95-cwCe4p71258dnZfgvZVh69UykF0\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:29:13 GMT"
+									"value": "Fri, 26 Jan 2024 13:09:44 GMT"
 								},
 								{
 									"key": "Connection",
@@ -116,69 +120,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"name\": \"Hemant Makar\",\n        \"email\": \"hpm@gmail.com\",\n        \"gender\": \"Male\",\n        \"age\": 18,\n        \"permissionLevel\": 0,\n        \"_id\": \"65a4dec9c7b31b5a96258a44\"\n    },\n    \"error\": null\n}"
-						},
-						{
-							"name": "register-failed",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Hemant Makar\",\r\n    \"email\": \"hpm@gmail.com\",\r\n    \"password\": \"admin@123\",\r\n    \"age\": 18,\r\n    \"gender\": \"Male\",\r\n    \"permissionLevels\": 1\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}:{{port}}/users/register",
-									"host": [
-										"{{host}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"users",
-										"register"
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "130"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"82-ggaI6EHOJdGUw/8TKFxUhKZRj/o\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:28:27 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"error\": \"E11000 duplicate key error collection: guard-me.users index: email_1 dup key: { email: \\\"hpm@gmail.com\\\" }\"\n}"
+							"body": "{\n    \"data\": {\n        \"name\": \"Hemant\",\n        \"email\": \"hemant.makar@gmail.com\",\n        \"gender\": \"Male\",\n        \"age\": 18,\n        \"permissionLevel\": 0,\n        \"id\": \"65b3af1839f058ed2c2717e7\"\n    },\n    \"error\": null\n}"
 						}
 					]
 				},
@@ -190,7 +132,7 @@
 							"script": {
 								"exec": [
 									"if(pm.response.code === 200) {\r",
-									"    pm.environment.set(\"userId\", pm.response.json().data.user._id);\r",
+									"    pm.environment.set(\"userId\", pm.response.json().data.user.id);\r",
 									"}\r",
 									""
 								],
@@ -203,7 +145,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"hm@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+							"raw": "{\r\n    \"email\": \"hemant.makar@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -211,25 +153,27 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/login",
+							"raw": "http://{{host}}:{{port}}/{{version}}/login",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"login"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "login-success",
+							"name": "login",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"hpm@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
+									"raw": "{\r\n    \"email\": \"hemant.makar@gmail.com\",\r\n    \"password\": \"admin@123\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -237,12 +181,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}:{{port}}/login",
+									"raw": "http://{{host}}:{{port}}/{{version}}/login",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"login"
 									]
 								}
@@ -261,15 +207,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "710"
+									"value": "726"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"2c6-EHxXrHqkP1yH83aoZPhazbW8WhE\""
+									"value": "W/\"2d6-+zgbfWVLqgeFW+VJjQ7YFC1JneY\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:30:19 GMT"
+									"value": "Fri, 26 Jan 2024 13:10:06 GMT"
 								},
 								{
 									"key": "Connection",
@@ -281,16 +227,57 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhwbUBnbWFpbC5jb20iLCJwYXNzd29yZCI6ImFkbWluQDEyMyIsInVzZXIiOnsiX2lkIjoiNjVhNGRlYzljN2IzMWI1YTk2MjU4YTQ0IiwibmFtZSI6IkhlbWFudCBNYWthciIsImVtYWlsIjoiaHBtQGdtYWlsLmNvbSIsImdlbmRlciI6Ik1hbGUiLCJhZ2UiOjE4LCJwZXJtaXNzaW9uTGV2ZWwiOjB9LCJyZWZyZXNoS2V5IjoicEZkK0VWd2JMMkZtQVRTcHRvVjJkUT09IiwiaWF0IjoxNzA1MzAzODE5fQ.x7Zq7HmKeYVf5sxh9WUI7DgBuu69k-pV6V1q9ZNrziE\",\n        \"refreshToken\": \"NmI0bXVoczZsR1R1QTlUYlA2SXRUVzJaWlNDOWVRRkpTK3JwRVVwOFVPUXh4U0tkeVlmSEdwQmJET0dyNWkwbFo1RlN2dTd6WWRNSWZuZjdMdllqekE9PQ==\",\n        \"user\": {\n            \"_id\": \"65a4dec9c7b31b5a96258a44\",\n            \"name\": \"Hemant Makar\",\n            \"email\": \"hpm@gmail.com\",\n            \"gender\": \"Male\",\n            \"age\": 18,\n            \"permissionLevel\": 0\n        }\n    },\n    \"error\": null\n}"
-						},
+							"body": "{\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlbWFudC5tYWthckBnbWFpbC5jb20iLCJwYXNzd29yZCI6ImFkbWluQDEyMyIsInVzZXIiOnsibmFtZSI6IkhlbWFudCIsImVtYWlsIjoiaGVtYW50Lm1ha2FyQGdtYWlsLmNvbSIsImdlbmRlciI6Ik1hbGUiLCJhZ2UiOjE4LCJwZXJtaXNzaW9uTGV2ZWwiOjAsImlkIjoiNjViM2FmMTgzOWYwNThlZDJjMjcxN2U3In0sInJlZnJlc2hLZXkiOiJabThFUjYxQm1nYUdKdHdtWWN2UmZBPT0iLCJpYXQiOjE3MDYyNzQ2MDZ9.HRiwacv2D4-DiSsZidNxO9qOaxpSegvGynm_qqTmdMo\",\n        \"refreshToken\": \"QllERjlDQ1lNbEc4cXl6bmU3RHRvMHI5MzdtbldFK2xUUkhnYkZ3OEJsMk50UllVNGtET3JIQUdSSmQwQW9IcStXVmt2eVhsek11MmVLc0lqUm10S0E9PQ==\",\n        \"user\": {\n            \"name\": \"Hemant\",\n            \"email\": \"hemant.makar@gmail.com\",\n            \"gender\": \"Male\",\n            \"age\": 18,\n            \"permissionLevel\": 0,\n            \"id\": \"65b3af1839f058ed2c2717e7\"\n        }\n    },\n    \"error\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "forgot-password",
+					"event": [
 						{
-							"name": "login-failed",
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hemant.makar@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{version}}/forgotPassword",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{version}}",
+								"forgotPassword"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "forgot-password",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"hpm@gmail.com\",\r\n    \"password\": \"aadmin@123\"\r\n}",
+									"raw": "{\r\n    \"email\": \"hemant.makar@gmail.com\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -298,18 +285,20 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}:{{port}}/login",
+									"raw": "http://{{host}}:{{port}}/{{version}}/forgotPassword",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"login"
+										"{{version}}",
+										"forgotPassword"
 									]
 								}
 							},
-							"status": "Bad Request",
-							"code": 400,
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -322,15 +311,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "50"
+									"value": "66"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"32-LCa2etClyewKF2+BaC3Ud5rLD4o\""
+									"value": "W/\"42-Hew4H/14DM7ltfQzLJuzgJuobn0\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:30:47 GMT"
+									"value": "Fri, 26 Jan 2024 13:10:18 GMT"
 								},
 								{
 									"key": "Connection",
@@ -342,7 +331,111 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"error\": \"Invalid e-mail or password\"\n}"
+							"body": "{\n    \"data\": \"OTP is sent to your register email address\",\n    \"error\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "resetPassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hemant.makar@gmail.com\",\r\n    \"password\":\"admin@123\",\r\n    \"otp\": 9325\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{version}}/resetPassword",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{version}}",
+								"resetPassword"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "resetPassword",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"hemant.makar@gmail.com\",\r\n    \"password\":\"admin@123\",\r\n    \"otp\": 9325\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/{{version}}/resetPassword",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{version}}",
+										"resetPassword"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-n8J09jMDFCZpiTEmW81rfEHULLI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 13:10:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"Password resetted successfully\",\n    \"error\": null\n}"
 						}
 					]
 				},
@@ -364,17 +457,83 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/logout",
+							"raw": "http://{{host}}:{{port}}/{{version}}/logout",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"logout"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "logout",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/{{version}}/logout",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{version}}",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-wI8haCQ/0FzXw7ZgKmF6l8JOQ2c\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 13:11:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"User logout successfully\",\n    \"error\": null\n}"
+						}
+					]
 				},
 				{
 					"name": "all users",
@@ -382,29 +541,33 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/users",
+							"raw": "http://{{host}}:{{port}}/{{version}}/users",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"users"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "all users-success",
+							"name": "all users",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}:{{port}}/users",
+									"raw": "http://{{host}}:{{port}}/{{version}}/users",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"users"
 									]
 								}
@@ -423,15 +586,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "275"
+									"value": "151"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"113-KuMU5UZCEY+WTvgp27XnZRtXvjw\""
+									"value": "W/\"97-tfzblIE362g9z5GeNYUgwW/uh0s\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:31:32 GMT"
+									"value": "Fri, 26 Jan 2024 13:11:05 GMT"
 								},
 								{
 									"key": "Connection",
@@ -443,7 +606,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"65a4dec9c7b31b5a96258a44\",\n            \"name\": \"Hemant Makar\",\n            \"email\": \"hpm@gmail.com\",\n            \"gender\": \"Male\",\n            \"age\": 18,\n            \"permissionLevel\": 0\n        },\n        {\n            \"_id\": \"65a4df5069130082d6a32440\",\n            \"name\": \"Santosh Makar\",\n            \"email\": \"sm@gmail.com\",\n            \"gender\": \"Male\",\n            \"age\": 18,\n            \"permissionLevel\": 0\n        }\n    ],\n    \"error\": null\n}"
+							"body": "{\n    \"data\": [\n        {\n            \"name\": \"Hemant\",\n            \"email\": \"hemant.makar@gmail.com\",\n            \"gender\": \"Male\",\n            \"age\": 18,\n            \"permissionLevel\": 0,\n            \"id\": \"65b3af1839f058ed2c2717e7\"\n        }\n    ],\n    \"error\": null\n}"
 						}
 					]
 				},
@@ -453,12 +616,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/users/{{userId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/users/{{userId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"users",
 								"{{userId}}"
 							]
@@ -466,17 +631,19 @@
 					},
 					"response": [
 						{
-							"name": "get user-success",
+							"name": "get user",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}:{{port}}/users/{{userId}}",
+									"raw": "http://{{host}}:{{port}}/{{version}}/users/{{userId}}",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"users",
 										"{{userId}}"
 									]
@@ -496,15 +663,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "147"
+									"value": "149"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"93-PX/Zm80yU6s8sRgawyGJRo+wXz4\""
+									"value": "W/\"95-cwCe4p71258dnZfgvZVh69UykF0\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:32:18 GMT"
+									"value": "Fri, 26 Jan 2024 13:11:08 GMT"
 								},
 								{
 									"key": "Connection",
@@ -516,60 +683,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"_id\": \"65a4dec9c7b31b5a96258a44\",\n        \"name\": \"Hemant Makar\",\n        \"email\": \"hpm@gmail.com\",\n        \"gender\": \"Male\",\n        \"age\": 18,\n        \"permissionLevel\": 0\n    },\n    \"error\": null\n}"
-						},
-						{
-							"name": "get user-failure",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}:{{port}}/users/{{userId}}",
-									"host": [
-										"{{host}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"users",
-										"{{userId}}"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "40"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"28-fv3Suhl5VhdePh9sgo5FJBqBwaE\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:36:38 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"error\": \"Record not found\"\n}"
+							"body": "{\n    \"data\": {\n        \"name\": \"Hemant\",\n        \"email\": \"hemant.makar@gmail.com\",\n        \"gender\": \"Male\",\n        \"age\": 18,\n        \"permissionLevel\": 0,\n        \"id\": \"65b3af1839f058ed2c2717e7\"\n    },\n    \"error\": null\n}"
 						}
 					]
 				},
@@ -580,7 +694,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"permissionLevel\": 0\r\n}",
+							"raw": "{\r\n    \"permissionLevel\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -588,12 +702,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/users/{{userId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/users/{{userId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"users",
 								"{{userId}}"
 							]
@@ -601,13 +717,13 @@
 					},
 					"response": [
 						{
-							"name": "update user-success",
+							"name": "update user",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n        \"permissionLevel\": 0\r\n    }",
+									"raw": "{\r\n    \"permissionLevel\": 1\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -615,12 +731,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}:{{port}}/users/{{userId}}",
+									"raw": "http://{{host}}:{{port}}/{{version}}/users/{{userId}}",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"users",
 										"{{userId}}"
 									]
@@ -640,15 +758,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "147"
+									"value": "149"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"93-PX/Zm80yU6s8sRgawyGJRo+wXz4\""
+									"value": "W/\"95-xdJNoG5tpVf2rZghokuV0sK0QfI\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:32:44 GMT"
+									"value": "Fri, 26 Jan 2024 13:11:41 GMT"
 								},
 								{
 									"key": "Connection",
@@ -660,69 +778,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"_id\": \"65a4dec9c7b31b5a96258a44\",\n        \"name\": \"Hemant Makar\",\n        \"email\": \"hpm@gmail.com\",\n        \"gender\": \"Male\",\n        \"age\": 18,\n        \"permissionLevel\": 0\n    },\n    \"error\": null\n}"
-						},
-						{
-							"name": "update user-failure",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n        \"permissionLevel\": 0\r\n    }",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}:{{port}}/users/{{userId}}",
-									"host": [
-										"{{host}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"users",
-										"{{userId}}"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "40"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"28-fv3Suhl5VhdePh9sgo5FJBqBwaE\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:33:50 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"error\": \"Record not found\"\n}"
+							"body": "{\n    \"data\": {\n        \"name\": \"Hemant\",\n        \"email\": \"hemant.makar@gmail.com\",\n        \"gender\": \"Male\",\n        \"age\": 18,\n        \"permissionLevel\": 1,\n        \"id\": \"65b3af1839f058ed2c2717e7\"\n    },\n    \"error\": null\n}"
 						}
 					]
 				},
@@ -732,12 +788,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/users/{{userId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/users/{{userId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"users",
 								"{{userId}}"
 							]
@@ -745,17 +803,19 @@
 					},
 					"response": [
 						{
-							"name": "delete user-success",
+							"name": "delete user",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{host}}:{{port}}/users/{{userId}}",
+									"raw": "http://{{host}}:{{port}}/{{version}}/users/{{userId}}",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"users",
 										"{{userId}}"
 									]
@@ -783,7 +843,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:33:03 GMT"
+									"value": "Fri, 26 Jan 2024 13:09:27 GMT"
 								},
 								{
 									"key": "Connection",
@@ -796,59 +856,6 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": \"Record deleted successfully\",\n    \"error\": null\n}"
-						},
-						{
-							"name": "delete user-failure",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{host}}:{{port}}/users/{{userId}}",
-									"host": [
-										"{{host}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"users",
-										"{{userId}}"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "40"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"28-fv3Suhl5VhdePh9sgo5FJBqBwaE\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:33:39 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"error\": \"Record not found\"\n}"
 						}
 					]
 				}
@@ -886,12 +893,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/alarms?userId={{userId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/alarms?userId={{userId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"alarms"
 							],
 							"query": [
@@ -904,13 +913,13 @@
 					},
 					"response": [
 						{
-							"name": "create:success",
+							"name": "create",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Science College Parking  \",\r\n    \"location\": {\r\n        \"latitude\": 120.0,\r\n        \"longitude\": 120.0\r\n    }\r\n}",
+									"raw": "{\r\n    \"name\": \"Pramod Incident\",\r\n    \"location\": {\r\n        \"latitude\": 1,\r\n        \"longitude\": 1\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -918,12 +927,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}:{{port}}/alarms?userId={{userId}}",
+									"raw": "http://{{host}}:{{port}}/{{version}}/alarms?userId={{userId}}",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"alarms"
 									],
 									"query": [
@@ -948,15 +959,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "345"
+									"value": "329"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"159-rb8HwmpueUiqXdR6yiwDvtd217Q\""
+									"value": "W/\"149-UXtKCUY1EvSb/zBds32LimgwjX4\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:39:28 GMT"
+									"value": "Fri, 26 Jan 2024 13:11:57 GMT"
 								},
 								{
 									"key": "Connection",
@@ -968,7 +979,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"name\": \"Science College Parking\",\n        \"location\": {\n            \"latitude\": 120,\n            \"longitude\": 120\n        },\n        \"createdBy\": \"65a4e0c54794ce05f13473d0\",\n        \"isClosed\": false,\n        \"createdOn\": 1705304166824,\n        \"participants\": [\n            {\n                \"user\": \"65a4e0c54794ce05f13473d0\",\n                \"location\": {\n                    \"latitude\": 120,\n                    \"longitude\": 120\n                },\n                \"state\": 0,\n                \"message\": null\n            }\n        ],\n        \"_id\": \"65a4e1304794ce05f13473d5\",\n        \"__v\": 0\n    },\n    \"error\": null\n}"
+							"body": "{\n    \"data\": {\n        \"name\": \"Pramod Incident\",\n        \"location\": {\n            \"latitude\": 1,\n            \"longitude\": 1\n        },\n        \"createdBy\": \"65b3af1839f058ed2c2717e7\",\n        \"isClosed\": false,\n        \"createdOn\": 1706274133014,\n        \"participants\": [\n            {\n                \"user\": \"65b3af1839f058ed2c2717e7\",\n                \"location\": {\n                    \"latitude\": 1,\n                    \"longitude\": 1\n                },\n                \"state\": 0,\n                \"message\": null\n            }\n        ],\n        \"_id\": \"65b3af9d39f058ed2c2717f5\",\n        \"__v\": 0\n    },\n    \"error\": null\n}"
 						}
 					]
 				},
@@ -978,29 +989,33 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/alarms",
+							"raw": "http://{{host}}:{{port}}/{{version}}/alarms",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"alarms"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "all alarms:success",
+							"name": "all alarms",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}:{{port}}/alarms",
+									"raw": "http://{{host}}:{{port}}/{{version}}/alarms",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"alarms"
 									]
 								}
@@ -1019,15 +1034,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "347"
+									"value": "331"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"15b-Smy1fDc/wMeWrPGxIhs/0ZDRCmE\""
+									"value": "W/\"14b-HkRKTwlV4/MBh6FLw/9Mwxw9SvU\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:39:58 GMT"
+									"value": "Fri, 26 Jan 2024 13:12:02 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1039,7 +1054,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"65a4e1304794ce05f13473d5\",\n            \"name\": \"Science College Parking\",\n            \"location\": {\n                \"latitude\": 120,\n                \"longitude\": 120\n            },\n            \"createdBy\": \"65a4e0c54794ce05f13473d0\",\n            \"isClosed\": false,\n            \"createdOn\": 1705304166824,\n            \"participants\": [\n                {\n                    \"user\": \"65a4e0c54794ce05f13473d0\",\n                    \"location\": {\n                        \"latitude\": 120,\n                        \"longitude\": 120\n                    },\n                    \"state\": 0,\n                    \"message\": null\n                }\n            ],\n            \"__v\": 0\n        }\n    ],\n    \"error\": null\n}"
+							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"65b3af9d39f058ed2c2717f5\",\n            \"name\": \"Pramod Incident\",\n            \"location\": {\n                \"latitude\": 1,\n                \"longitude\": 1\n            },\n            \"createdBy\": \"65b3af1839f058ed2c2717e7\",\n            \"isClosed\": false,\n            \"createdOn\": 1706274133014,\n            \"participants\": [\n                {\n                    \"user\": \"65b3af1839f058ed2c2717e7\",\n                    \"location\": {\n                        \"latitude\": 1,\n                        \"longitude\": 1\n                    },\n                    \"state\": 0,\n                    \"message\": null\n                }\n            ],\n            \"__v\": 0\n        }\n    ],\n    \"error\": null\n}"
 						}
 					]
 				},
@@ -1049,12 +1064,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/alarms/{{alarmId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/alarms/{{alarmId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"alarms",
 								"{{alarmId}}"
 							]
@@ -1062,17 +1079,19 @@
 					},
 					"response": [
 						{
-							"name": "get alarm: success",
+							"name": "get alarm",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{host}}:{{port}}/alarms/{{alarmId}}",
+									"raw": "http://{{host}}:{{port}}/{{version}}/alarms/{{alarmId}}",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"alarms",
 										"{{alarmId}}"
 									]
@@ -1092,15 +1111,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "541"
+									"value": "330"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"21d-YeM5bVMV5vx48hp/c/UvLiJxa9Y\""
+									"value": "W/\"14a-p2e7Br9GjQ/ZE69b7zDQjTZhDqc\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:42:09 GMT"
+									"value": "Fri, 26 Jan 2024 13:12:55 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1112,60 +1131,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"_id\": \"65a4e1304794ce05f13473d5\",\n        \"name\": \"Science College Parking\",\n        \"location\": {\n            \"latitude\": 120,\n            \"longitude\": 120\n        },\n        \"createdBy\": {\n            \"_id\": \"65a4e0c54794ce05f13473d0\",\n            \"name\": \"Hemant Makar\",\n            \"email\": \"hm@gmail.com\",\n            \"gender\": \"Male\",\n            \"age\": 18,\n            \"permissionLevel\": 0\n        },\n        \"isClosed\": false,\n        \"createdOn\": 1705304166824,\n        \"participants\": [\n            {\n                \"user\": {\n                    \"_id\": \"65a4e0c54794ce05f13473d0\",\n                    \"name\": \"Hemant Makar\",\n                    \"email\": \"hm@gmail.com\",\n                    \"gender\": \"Male\",\n                    \"age\": 18,\n                    \"permissionLevel\": 0\n                },\n                \"location\": {\n                    \"latitude\": 120,\n                    \"longitude\": 120\n                },\n                \"state\": 0,\n                \"message\": null\n            }\n        ],\n        \"__v\": 0\n    },\n    \"error\": null\n}"
-						},
-						{
-							"name": "get alarm: failed",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}:{{port}}/alarms/{{alarmId}}",
-									"host": [
-										"{{host}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"alarms",
-										"{{alarmId}}"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "40"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"28-fv3Suhl5VhdePh9sgo5FJBqBwaE\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:41:04 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"error\": \"Record not found\"\n}"
+							"body": "{\n    \"data\": {\n        \"_id\": \"65b3af9d39f058ed2c2717f5\",\n        \"name\": \"Pramod Incident\",\n        \"location\": {\n            \"latitude\": 1,\n            \"longitude\": 1\n        },\n        \"createdBy\": {\n            \"name\": \"Hemant\",\n            \"email\": \"hemant.makar@gmail.com\",\n            \"gender\": \"Male\",\n            \"age\": 18,\n            \"permissionLevel\": 1,\n            \"id\": \"65b3af1839f058ed2c2717e7\"\n        },\n        \"isClosed\": false,\n        \"createdOn\": 1706274133014,\n        \"participants\": [],\n        \"__v\": 1\n    },\n    \"error\": null\n}"
 						}
 					]
 				},
@@ -1184,12 +1150,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/alarms/{{alarmId}}?userId={{userId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/alarms/{{alarmId}}?userId={{userId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"alarms",
 								"{{alarmId}}"
 							],
@@ -1203,13 +1171,13 @@
 					},
 					"response": [
 						{
-							"name": "update alarm:success",
+							"name": "update alarm",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"isClosed\": true\r\n}",
+									"raw": "{\r\n    \"isClosed\": false\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1217,12 +1185,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}:{{port}}/alarms/{{alarmId}}?userId={{userId}}",
+									"raw": "http://{{host}}:{{port}}/{{version}}/alarms/{{alarmId}}?userId={{userId}}",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"alarms",
 										"{{alarmId}}"
 									],
@@ -1248,15 +1218,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "344"
+									"value": "329"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"158-xXygcMRIg6bzQkVmiTHkySvQPwM\""
+									"value": "W/\"149-YCheo6YIGD7bZIRJHdjkh+vgB70\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:42:29 GMT"
+									"value": "Fri, 26 Jan 2024 13:12:17 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1268,75 +1238,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"_id\": \"65a4e1304794ce05f13473d5\",\n        \"name\": \"Science College Parking\",\n        \"location\": {\n            \"latitude\": 120,\n            \"longitude\": 120\n        },\n        \"createdBy\": \"65a4e0c54794ce05f13473d0\",\n        \"isClosed\": true,\n        \"createdOn\": 1705304166824,\n        \"participants\": [\n            {\n                \"user\": \"65a4e0c54794ce05f13473d0\",\n                \"location\": {\n                    \"latitude\": 120,\n                    \"longitude\": 120\n                },\n                \"state\": 0,\n                \"message\": null\n            }\n        ],\n        \"__v\": 0\n    },\n    \"error\": null\n}"
-						},
-						{
-							"name": "update alarm: failed",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"isClosed\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}:{{port}}/alarms/{{alarmId}}?userId={{userId}}",
-									"host": [
-										"{{host}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"alarms",
-										"{{alarmId}}"
-									],
-									"query": [
-										{
-											"key": "userId",
-											"value": "{{userId}}"
-										}
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "40"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"28-fv3Suhl5VhdePh9sgo5FJBqBwaE\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:41:15 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"error\": \"Record not found\"\n}"
+							"body": "{\n    \"data\": {\n        \"_id\": \"65b3af9d39f058ed2c2717f5\",\n        \"name\": \"Pramod Incident\",\n        \"location\": {\n            \"latitude\": 1,\n            \"longitude\": 1\n        },\n        \"createdBy\": \"65b3af1839f058ed2c2717e7\",\n        \"isClosed\": false,\n        \"createdOn\": 1706274133014,\n        \"participants\": [\n            {\n                \"user\": \"65b3af1839f058ed2c2717e7\",\n                \"location\": {\n                    \"latitude\": 1,\n                    \"longitude\": 1\n                },\n                \"state\": 0,\n                \"message\": null\n            }\n        ],\n        \"__v\": 0\n    },\n    \"error\": null\n}"
 						}
 					]
 				},
@@ -1346,12 +1248,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/alarms/{{alarmId}}?userId={{userId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/alarms/{{alarmId}}?userId={{userId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"alarms",
 								"{{alarmId}}"
 							],
@@ -1365,17 +1269,19 @@
 					},
 					"response": [
 						{
-							"name": "delete alarm:success",
+							"name": "delete alarm",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{host}}:{{port}}/alarms/{{alarmId}}?userId={{userId}}",
+									"raw": "http://{{host}}:{{port}}/{{version}}/alarms/{{alarmId}}?userId={{userId}}",
+									"protocol": "http",
 									"host": [
 										"{{host}}"
 									],
 									"port": "{{port}}",
 									"path": [
+										"{{version}}",
 										"alarms",
 										"{{alarmId}}"
 									],
@@ -1409,7 +1315,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:42:50 GMT"
+									"value": "Fri, 26 Jan 2024 13:13:06 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1422,65 +1328,6 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": \"Record deleted successfully\",\n    \"error\": null\n}"
-						},
-						{
-							"name": "delete alarm: failed",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{host}}:{{port}}/alarms/{{alarmId}}?userId={{userId}}",
-									"host": [
-										"{{host}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"alarms",
-										"{{alarmId}}"
-									],
-									"query": [
-										{
-											"key": "userId",
-											"value": "{{userId}}"
-										}
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "40"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"28-fv3Suhl5VhdePh9sgo5FJBqBwaE\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 15 Jan 2024 07:41:33 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"error\": \"Record not found\"\n}"
 						}
 					]
 				},
@@ -1499,12 +1346,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/alarms/userstate/{{alarmId}}?userId={{userId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/alarms/userstate/{{alarmId}}?userId={{userId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"alarms",
 								"userstate",
 								"{{alarmId}}"
@@ -1517,7 +1366,79 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "update user state",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"state\": 0,\r\n    \"message\": \"I am safe \",\r\n    \"location\": {\r\n        \"latitude\": 100.00,\r\n        \"longitude\": 200.00\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/{{version}}/alarms/userstate/{{alarmId}}?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{version}}",
+										"alarms",
+										"userstate",
+										"{{alarmId}}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "340"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"154-e3nIt0FQ/4j+TrThUiUxqzQqHyo\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 13:12:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"65b3af9d39f058ed2c2717f5\",\n        \"name\": \"Pramod Incident\",\n        \"location\": {\n            \"latitude\": 1,\n            \"longitude\": 1\n        },\n        \"createdBy\": \"65b3af1839f058ed2c2717e7\",\n        \"isClosed\": false,\n        \"createdOn\": 1706274133014,\n        \"participants\": [\n            {\n                \"user\": \"65b3af1839f058ed2c2717e7\",\n                \"location\": {\n                    \"latitude\": 100,\n                    \"longitude\": 200\n                },\n                \"state\": 0,\n                \"message\": \"I am safe\"\n            }\n        ],\n        \"__v\": 0\n    },\n    \"error\": null\n}"
+						}
+					]
 				},
 				{
 					"name": "join alarm",
@@ -1534,12 +1455,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/alarms/join/{{alarmId}}?userId={{userId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/alarms/join/{{alarmId}}?userId={{userId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"alarms",
 								"join",
 								"{{alarmId}}"
@@ -1552,7 +1475,79 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "join alarm",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"location\": {\r\n        \"latitude\": 1,\r\n        \"longitude\": 1\r\n    },\r\n    \"state\": 1,\r\n    \"message\": \"Fortify\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/{{version}}/alarms/join/{{alarmId}}?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{version}}",
+										"alarms",
+										"join",
+										"{{alarmId}}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "435"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b3-rBeG3ijJxK8SPuHiUOGEBDz/1Ts\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 13:12:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"65b3af9d39f058ed2c2717f5\",\n        \"name\": \"Pramod Incident\",\n        \"location\": {\n            \"latitude\": 1,\n            \"longitude\": 1\n        },\n        \"createdBy\": \"65b3af1839f058ed2c2717e7\",\n        \"isClosed\": false,\n        \"createdOn\": 1706274133014,\n        \"participants\": [\n            {\n                \"user\": {\n                    \"name\": \"Hemant\",\n                    \"email\": \"hemant.makar@gmail.com\",\n                    \"gender\": \"Male\",\n                    \"age\": 18,\n                    \"permissionLevel\": 1,\n                    \"id\": \"65b3af1839f058ed2c2717e7\"\n                },\n                \"location\": {\n                    \"latitude\": 1,\n                    \"longitude\": 1\n                },\n                \"state\": 1,\n                \"message\": \"Fortify\"\n            }\n        ],\n        \"__v\": 0\n    },\n    \"error\": null\n}"
+						}
+					]
 				},
 				{
 					"name": "leave alarm",
@@ -1572,12 +1567,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/alarms/leave/{{alarmId}}?userId={{userId}}",
+							"raw": "http://{{host}}:{{port}}/{{version}}/alarms/leave/{{alarmId}}?userId={{userId}}",
+							"protocol": "http",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
+								"{{version}}",
 								"alarms",
 								"leave",
 								"{{alarmId}}"
@@ -1590,7 +1587,79 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "leave alarm",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"location\": {\r\n        \"latitude\": 18.18,\r\n        \"longitude\": 18.18\r\n    },\r\n    \"state\": 1,\r\n    \"message\": \"Fortify\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{host}}:{{port}}/{{version}}/alarms/leave/{{alarmId}}?userId={{userId}}",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"{{version}}",
+										"alarms",
+										"leave",
+										"{{alarmId}}"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "{{userId}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"44-IFrowGUnbdGTYIsTFMn0A3GV0Zc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jan 2024 13:12:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"User leave from Pramod Incident successfully\",\n    \"error\": null\n}"
+						}
+					]
 				}
 			]
 		}
