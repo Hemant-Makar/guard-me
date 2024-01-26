@@ -1,10 +1,11 @@
-const jwtSecret = require('../../common/config/env.config.js').jwt_secret;
-const UserModel = require('../../users/models/users.model.js')
-const config = require('../../common/config/env.config.js');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const UserModel = require('../../users/models/users.model.js')
+const config = require('../../../config/env.config.js');
 const Utils = require('../../utils/utils.js');
+
+const jwtSecret = config.jwt_secret;
 
 // Login
 exports.login = async (req, res) => {
