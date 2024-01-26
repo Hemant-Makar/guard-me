@@ -1,6 +1,14 @@
 const mongoose = require('../../common/services/mongoose.service').mongoose;
 const Schema = mongoose.Schema;
 
+const OtpSchema = new Schema({
+    // email: { type: String, trim: true, require: true, unique: true },
+    otp: { type: Number, require: true, default: null },
+    // Default 5 min 
+    expiredTime: { type: Number, require: true, default: 0 },
+})
+
+// User schema for UserModel
 const userSchema = new Schema({
     name: { type: String, trim: true, required: true },
     email: { type: String, trim: true, require: true, unique: true },
@@ -8,7 +16,7 @@ const userSchema = new Schema({
     gender: { type: String, trim: true, require: true },
     age: { type: Number, require: true },
     permissionLevel: { type: Number, require: true, default: 0 },
-    otp: { type: Number, default: null }
+    otp: { type: OtpSchema, _id: false, default: null }
 });
 
 // Hide the private properties

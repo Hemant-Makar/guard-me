@@ -11,6 +11,9 @@ module.exports = {
         "user": "guardme20242@gmail.com",
         "password": "crii knrz wvgv tqen"
     },
+    "otp":{
+        expirationTimeInSeconds: 300
+    },
     "permissionLevels": {
         "NORMAL_USER": 0,
         "RESPONDER_USER": 1,

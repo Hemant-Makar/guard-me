@@ -37,7 +37,27 @@ exports.isPasswordAndUserMatch = (req, res, next) => {
                     return Utils.sendResponse(res, 400, null, 'Invalid e-mail or password');
                 }
             } else {
-                Utils.sendResponse(res, 404, null, 'User email not found');
+                return Utils.sendResponse(res, 404, null, 'User email not found');
             }
         });
 };
+
+// validate forgot password OTP
+exports.hasValidOtp = async (req, res, next) => {
+    try {
+        const user = await UserModel.findByEmail(req.body.email);
+        const otpExpirationTime = user.otp.expiredTime;
+        const currentTime = Date.now();
+        console.log('reset', user.otp, currentTime);
+        const isExpiredOtp = currentTime >= otpExpirationTime;
+        if (user.otp.otp === req.body.otp && !isExpiredOtp) {
+            // Assign current user in req body
+            req.body.user = user;
+            return next();
+        } else {
+            return Utils.sendResponse(res, 400, null, 'Invalid OTP, Please try again!');
+        }
+    } catch (error) {
+        return Utils.sendResponse(res, 404, null, 'User email not found');
+    }
+}

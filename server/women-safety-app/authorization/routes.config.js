@@ -1,10 +1,10 @@
 const AuthorizationController = require('./controllers/authorization.controller');
-const VerifyUserMiddleware = require('./middlewares/verify.users.middleware');
+const UserAuthMiddleware = require('./middlewares/user.auth.middleware');
 exports.routesConfig = function (app) {
 
     // Login
     app.post('/login', [
-        VerifyUserMiddleware.isPasswordAndUserMatch,
+        UserAuthMiddleware.isPasswordAndUserMatch,
         AuthorizationController.login
     ]);
 
@@ -12,8 +12,8 @@ exports.routesConfig = function (app) {
     app.get('/logout', [AuthorizationController.logout]);
 
     // app.post('/auth', [
-    //     VerifyUserMiddleware.hasAuthValidFields,
-    //     VerifyUserMiddleware.isPasswordAndUserMatch,
+    //     UserAuthMiddleware.hasAuthValidFields,
+    //     UserAuthMiddleware.isPasswordAndUserMatch,
     //     AuthorizationController.login
     // ]);
 
@@ -27,5 +27,8 @@ exports.routesConfig = function (app) {
     // Forgot password
     app.post('/forgotPassword', [AuthorizationController.forgotPassword]);
     // Reset password
-    app.post('/resetPassword', [AuthorizationController.resetPassword]);
+    app.post('/resetPassword', [
+        UserAuthMiddleware.hasValidOtp,
+        AuthorizationController.resetPassword
+    ]);
 };

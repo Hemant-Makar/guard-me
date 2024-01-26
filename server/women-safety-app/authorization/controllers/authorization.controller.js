@@ -31,9 +31,11 @@ exports.logout = (req, res) => {
 exports.forgotPassword = async (req, res) => {
     try {
         const user = await UserModel.findByEmail(req.body.email);
-        user.otp = generateOtp();
+        const otp = generateOtp();
+        user.otp = otp;
         await user.save();
-        await sendEmailWithOtp(user.otp, user.email)
+        console.log('sending otp', otp, user.otp);
+        await sendEmailWithOtp(user.otp.otp, user.email)
         Utils.sendResponse(res, 200, 'OTP is sent to your register email address');
     } catch (error) {
         Utils.sendResponse(res, 404, null, error);
@@ -42,17 +44,14 @@ exports.forgotPassword = async (req, res) => {
 // Reset Password
 exports.resetPassword = async (req, res) => {
     try {
-        const user = await UserModel.findByEmail(req.body.email);
-        if (user.otp === req.body.otp) {
-            let salt = crypto.randomBytes(16).toString('base64');
-            let hash = crypto.createHmac('sha512', salt).update(req.body.password).digest('base64');
-            user.password = salt + '$' + hash;
-            user.otp = null;
-            await user.save();
-            Utils.sendResponse(res, 200, 'Password resetted successfully', null);
-        } else {
-            Utils.sendResponse(res, 400, null, 'Invalid OTP');
-        }
+        // User is added in req.body in auth middleware
+        const user = req.body.user;
+        let salt = crypto.randomBytes(16).toString('base64');
+        let hash = crypto.createHmac('sha512', salt).update(req.body.password).digest('base64');
+        user.password = salt + '$' + hash;
+        user.otp = null;
+        await user.save();
+        Utils.sendResponse(res, 200, 'Password resetted successfully', null);
     } catch (error) {
         Utils.sendResponse(res, 404, null, error);
     }
@@ -72,7 +71,8 @@ exports.refresh_token = (req, res) => {
  */
 function generateOtp() {
     const otp = Math.floor(1000 + Math.random() * 9000);
-    return otp;
+    const expiredTime = Date.now() + config.otp.expirationTimeInSeconds * 1000;
+    return { otp, expiredTime };
 }
 /**
  * Send forgot password OPT to user register email address
