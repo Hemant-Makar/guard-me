@@ -6,7 +6,7 @@ const AuthRouters = require('./api/authorization/routes.config');
 // Alarm Module
 const AlarmRouters = require('./api/alarms/routes.config')
 
-const config = require('./api/common/config/env.config');
+const config = require('./config/env.config');
 
 const express = require('express');
 const app = express();

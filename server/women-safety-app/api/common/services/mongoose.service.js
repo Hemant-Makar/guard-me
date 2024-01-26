@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const config = require('../config/env.config');
+const config = require('../../../config/env.config');
 
 let count = 0;
 
