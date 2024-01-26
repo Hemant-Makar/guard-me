@@ -16,3 +16,9 @@
 - /Users/{{username}}/mongodb/bin/mongod.exe --dbpath=/Users/{{username}}/mongodb-data
 
 ### 
+
+
+### Women Safety Application Credemtials:
+- email: guardme20242@gmail.com
+- password: Guardme@9182604986
+- app password: crii knrz wvgv tqen
